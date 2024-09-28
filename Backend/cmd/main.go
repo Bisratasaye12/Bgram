@@ -34,15 +34,17 @@ func main() {
 	jwtService := infrastructure.NewJWTService(env.JWT_SECRET_KEY)
 	urlService := infrastructure.NewURLService(jwtService, urlRepo, env)
 	emailPasswordService := infrastructure.NewEmailPasswordService()
+	oauthService := infrastructure.NewOAuthService(env)
 
 	// Setup use cases
 	userUsecase := usecases.NewUserUseCase(userRepo, jwtService, urlService, cloudinaryService,emailPasswordService, sessionRepo)
-
+	oauthUseCase := usecases.NewOAuthUseCase(oauthService)
 	// Setup controllers
 	userController := controllers.NewUserController(userUsecase, env)
+	oauthController := controllers.NewOAuthController(oauthUseCase)
 
 	// Setup routes
-	routers.SetupRoutes(router, userController)
+	routers.SetupRoutes(router, userController, oauthController)
 
 	router.Run(env.APP_BASE_URL)
 
