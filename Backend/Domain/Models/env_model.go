@@ -17,4 +17,9 @@ type Env struct {
 	CLOUDINARY_API_KEY    string
 	CLOUDINARY_CLOUD_NAME string
 	CLOUDINARY_API_SECRET string
+
+	G_CLIENT_ID     string
+	G_CLIENT_SECRET string
+	G_REDIRECT_URL  string
+	G_CERT_URL	  string
 }

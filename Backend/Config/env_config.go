@@ -33,6 +33,10 @@ func InitEnv() *models.Env {
 	env.CLOUDINARY_API_KEY = viper.GetString("CLOUDINARY_API_KEY")
 	env.CLOUDINARY_CLOUD_NAME = viper.GetString("CLOUDINARY_CLOUD_NAME")
 	env.CLOUDINARY_API_SECRET = viper.GetString("CLOUDINARY_API_SECRET")
+	env.G_CLIENT_ID = viper.GetString("G_CLIENT_ID")
+	env.G_CLIENT_SECRET = viper.GetString("G_CLIENT_SECRET")
+	env.G_REDIRECT_URL = viper.GetString("G_REDIRECT_URL")
+	env.G_CERT_URL = viper.GetString("G_CERT_URL")
 
 	return env
 }
